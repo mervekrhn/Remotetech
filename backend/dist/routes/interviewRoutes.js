@@ -9,7 +9,7 @@ const interviewController_1 = require("../controllers/interviewController");
 const router = express_1.default.Router();
 // Define routes
 router.post('/create', authMiddleware_1.authMiddleware, interviewController_1.createInterview);
-router.get('/list', authMiddleware_1.authMiddleware, interviewController_1.getInterviews);
+router.get('/list', interviewController_1.getInterviews);
 router.put('/update/:id', authMiddleware_1.authMiddleware, interviewController_1.updateInterview);
 router.delete('/delete/:id', authMiddleware_1.authMiddleware, interviewController_1.deleteInterview);
 router.get('/interview-ids', interviewController_1.getAllInterviewIds);

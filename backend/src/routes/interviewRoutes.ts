@@ -18,7 +18,7 @@ const router = express.Router();
 
 // Define routes
 router.post('/create',  authMiddleware , createInterview);
-router.get('/list', authMiddleware , getInterviews);
+router.get('/list', getInterviews);
 router.put('/update/:id', authMiddleware , updateInterview);
 router.delete('/delete/:id', authMiddleware , deleteInterview);
 router.get('/interview-ids', getAllInterviewIds);
