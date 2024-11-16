@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    /* Dil ve Ortam Ayarları */
+    "target": "es2016",                                  /* JavaScript dil versiyonu */
+    "module": "commonjs",                                /* Modül kodu */
+    "esModuleInterop": true,                             /* CommonJS modülleriyle uyumluluk için ek JS kodu */
+    "forceConsistentCasingInFileNames": true,            /* Dosya adlarının tutarlılığı */
+
+    /* Dosya ve Dizin Ayarları */
+    "rootDir": "./src",                                  /* Proje kaynaklarının kök dizini */
+    "outDir": "./dist",                                  /* Derlenmiş dosyaların çıkış dizini */
+    "skipLibCheck": true,                                /* Kütüphane .d.ts dosyalarını atla */
+    "strict": true,                                      /* Tüm katı tip denetleme ayarlarını etkinleştir */
+
+    /* Tip Denetleme */
+    "types": ["node", "express"],                        /* Projede kullanılan tip dosyaları */
+    "typeRoots": ["./node_modules/@types", "./src/types"], /* Tip kök dizinleri */
+    
+    /* Desteklenen Özellikler */
+    "resolveJsonModule": true,                           /* JSON dosyalarının TypeScript'te import edilmesine izin verir */
+    "allowSyntheticDefaultImports": true,                /* Varsayılan olmayan modüllerin varsayılan olarak import edilmesine izin ver */
+    "noImplicitAny": true                                /* 'any' tipini bilinçsizce kullanmayı engelle */
+  },
+  "include": ["src/**/*.ts"],                            /* Hangi dosyaların dahil edileceğini belirtir */
+  "exclude": ["node_modules", "dist"]                    /* Derlemeye dahil edilmeyecek dosya ve dizinler */
+}
