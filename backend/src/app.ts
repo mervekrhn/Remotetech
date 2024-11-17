@@ -16,7 +16,7 @@ connectDB();
 const app = express();
 
 app.use(cors({
-  origin: ['https://remoteadmin.vercel.app'], // Frontend'in çalıştığı portları burada belirtin
+  origin: ['https://remoteadmin.vercel.app','https://remoteuser.vercel.app'], // Frontend'in çalıştığı portları burada belirtin
   credentials: true,  // Eğer frontend'den cookie gönderiyorsanız bunu kullanın
   }));
 app.use(express.json());
