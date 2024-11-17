@@ -26,13 +26,13 @@ export const login = async (req: Request, res: Response): Promise<void> => {
     // JWT token oluştur
     const token = jwt.sign(payload, secret, { expiresIn: '1h' });
 
-    // JWT token'ı cookie'de ayarlayın
     res.cookie('token', token, {
-      httpOnly: true,  // JavaScript erişimini engeller (XSS saldırılarına karşı)
-      secure: false,  // Localhost için HTTPS gerekmez, bu yüzden secure: false olmalı
-      maxAge: 6 * 60 * 60 * 1000,  // 6 saat geçerli
-      sameSite: 'lax',  // CSRF koruması için sameSite ayarı
-    });
+      httpOnly: true, // JavaScript'ten erişilemez
+      secure: process.env.NODE_ENV === 'production', // HTTPS gereksinimi
+      path: '/', // Cookie'nin tüm yollar için geçerli olması
+      sameSite: 'none', // Çapraz site isteklerine izin verir
+      maxAge: 3600000, // 1 saat
+});
     
 
     // Başarılı giriş mesajı ve token döndür

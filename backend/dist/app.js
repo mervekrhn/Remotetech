@@ -19,7 +19,7 @@ dotenv_1.default.config();
 (0, db_1.default)();
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)({
-    origin: ['http://localhost:5173', 'http://localhost:5174'], // Frontend'in çalıştığı portları burada belirtin
+    origin: ['remoteadmin.vercel.app'], // Frontend'in çalıştığı portları burada belirtin
     credentials: true, // Eğer frontend'den cookie gönderiyorsanız bunu kullanın
 }));
 app.use(express_1.default.json());
@@ -31,6 +31,7 @@ app.use('/api/question-package', authMiddleware_1.authMiddleware, question_1.def
 app.use('/api/users', user_1.default);
 app.use('/api/upload', media_1.default);
 app.use('/api', questionTimeRoutes_1.default);
+app.options('*', (0, cors_1.default)()); // OPTIONS isteği için izin ver
 // Basit bir test rotası
 app.get('/', (_req, res) => {
     res.send('API is running...');

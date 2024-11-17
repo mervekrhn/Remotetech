@@ -16,7 +16,7 @@ connectDB();
 const app = express();
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5174'], // Frontend'in çalıştığı portları burada belirtin
+  origin: ['remoteadmin.vercel.app'], // Frontend'in çalıştığı portları burada belirtin
   credentials: true,  // Eğer frontend'den cookie gönderiyorsanız bunu kullanın
   }));
 app.use(express.json());
@@ -29,6 +29,7 @@ app.use('/api/question-package', authMiddleware,questionPackageRoutes);
 app.use('/api/users',userRoutes); 
 app.use('/api/upload' , media) 
 app.use('/api', questionTimeRoutes);
+app.options('*', cors()); // OPTIONS isteği için izin ver
 
 // Basit bir test rotası
 app.get('/', (_req, res) => {
