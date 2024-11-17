@@ -19,7 +19,7 @@ dotenv_1.default.config();
 (0, db_1.default)();
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)({
-    origin: ['remoteadmin.vercel.app'], // Frontend'in çalıştığı portları burada belirtin
+    origin: ['https://remoteadmin.vercel.app'], // Frontend'in çalıştığı portları burada belirtin
     credentials: true, // Eğer frontend'den cookie gönderiyorsanız bunu kullanın
 }));
 app.use(express_1.default.json());
